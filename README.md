@@ -139,4 +139,4 @@ docker-compose logs db
 docker-compose logs web
 ```
 
-This project was created by Gopal Vishwakarma, a passionate DevOps fresher. For any questions or collaborations, please reach out at gopalvish@supporthives.com.
+This project was created by Gopal Vishwakarma, a passionate DevOps Engineer.
