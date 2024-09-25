@@ -95,6 +95,10 @@ Email Successfully sent
 
 ![Application Screenshot](assets/email_output_screenshot.png)
 
+Email data Successfully saved in database
+
+![Application Screenshot](assets/plsql_output_screenshot.png)
+
 ## Monitoring and Logging
 
 ### Viewing Logs
