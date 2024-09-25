@@ -1,8 +1,8 @@
 # DevOps Project Showcase
 
-## Docker + Flask + NGINX + Jenkins on AlmaLinux
+## Docker + Flask + NGINX + Redis + PostgreSQL on AlmaLinux
 
-This project demonstrates a robust DevOps pipeline using Docker, Flask, NGINX, and Jenkins, deployed on AlmaLinux. It's designed to showcase the skills of a DevOps fresher in containerization, web development, reverse proxy configuration, and continuous integration/continuous deployment (CI/CD).
+This project demonstrates a containerized web application setup using Docker, Flask, NGINX, Redis, and PostgreSQL, deployed on AlmaLinux. It's designed to showcase the skills of a DevOps fresher in containerization, web development, and database management.
 
 ![Project Architecture](assets/project_architecture.png)
 
@@ -12,17 +12,15 @@ This project demonstrates a robust DevOps pipeline using Docker, Flask, NGINX, a
 2. [Project Structure](#project-structure)
 3. [Setup and Installation](#setup-and-installation)
 4. [Running the Application](#running-the-application)
-5. [CI/CD with Jenkins](#cicd-with-jenkins)
-6. [Monitoring and Logging](#monitoring-and-logging)
-7. [Troubleshooting](#troubleshooting)
-8. [Future Improvements](#future-improvements)
+5. [Monitoring and Logging](#monitoring-and-logging)
+6. [Troubleshooting](#troubleshooting)
+7. [Future Improvements](#future-improvements)
 
 ## Prerequisites
 
 - AlmaLinux 8 or later
 - Docker and Docker Compose
 - Git
-- Jenkins
 
 ## Project Structure
 
@@ -94,34 +92,6 @@ docker-compose ps
 
 ![Application Screenshot](assets/application_screenshot.png)
 
-## CI/CD with Jenkins
-
-### Setting up Jenkins
-
-1. Install Jenkins on AlmaLinux:
-
-```bash
-sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
-sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
-sudo dnf install jenkins
-sudo systemctl start jenkins
-sudo systemctl enable jenkins
-```
-
-2. Access Jenkins at `http://your-server-ip:8080` and complete the setup
-
-### Creating a Jenkins Pipeline
-
-1. Create a new Jenkins Pipeline job
-2. Configure the pipeline to use the Jenkinsfile in your repository
-3. Set up webhook in your Git repository to trigger the Jenkins job on push
-
-![Jenkins Pipeline](assets/jenkins_pipeline.png)
-
-### Jenkins Build Status
-
-![Jenkins Status](assets/jenkins_status.png)
-
 ## Monitoring and Logging
 
 ### Viewing Logs
@@ -138,6 +108,14 @@ docker-compose logs -f service_name
 docker-compose ps
 ```
 
+### Checking Resource Usage
+
+```bash
+docker stats
+```
+
+![Docker Stats](assets/docker_stats.png)
+
 ## Troubleshooting
 
 - If the application is not accessible, check NGINX logs:
@@ -152,12 +130,20 @@ docker-compose logs nginx
 docker-compose logs db
 ```
 
+- If the Flask app is not responding, check its logs:
+
+```bash
+docker-compose logs web
+```
+
 ## Future Improvements
 
-1. Implement Prometheus and Grafana for advanced monitoring
-2. Add unit and integration tests to the CI/CD pipeline
-3. Implement blue-green deployment strategy
-4. Set up ELK stack for centralized logging
+1. Implement a CI/CD pipeline using Jenkins or GitLab CI
+2. Add Prometheus and Grafana for advanced monitoring
+3. Implement automated testing in the Docker environment
+4. Set up ELK stack (Elasticsearch, Logstash, Kibana) for centralized logging
+5. Optimize Docker images for production use
+6. Implement a reverse proxy like Traefik for easier SSL management
 
 ---
 
