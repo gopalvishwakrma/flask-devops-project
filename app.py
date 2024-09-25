@@ -29,8 +29,7 @@ def home():
     cache.incr('hits')
     counter = cache.get('hits').decode('utf-8')
     project_description = "This is a Flask-based DevOps project showcasing Docker Compose with Redis, PostgreSQL, and NGINX. \
-    The project demonstrates Gopal Vishwakarma's expertise in containerization, continuous deployment with Jenkins, and \
-    advanced DevOps tools integration."
+    The project demonstrates Gopal Vishwakarma's expertise in containerization and advanced DevOps tools integration for scalable application deployment. \"
     return render_template('index.html', hits=counter, description=project_description)
 
 @app.route('/contact', methods=['POST'])
