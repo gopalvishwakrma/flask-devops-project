@@ -4,8 +4,6 @@
 
 This project demonstrates a containerized web application setup using Docker, Flask, NGINX, Redis, and PostgreSQL, deployed on AlmaLinux. It's designed to showcase the skills of a DevOps fresher in containerization, web development, and database management.
 
-![Project Architecture](assets/project_architecture.png)
-
 ## Table of Contents
 
 1. [Prerequisites](#prerequisites)
