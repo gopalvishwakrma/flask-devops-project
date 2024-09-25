@@ -90,6 +90,11 @@ docker compose ps
 ![Application Screenshot](assets/application_screenshot_1.png)
 ![Application Screenshot](assets/application_screenshot_2.png)
 
+## Last output
+Email Successfully sent
+
+![Application Screenshot](assets/email_output_screenshot.png)
+
 ## Monitoring and Logging
 
 ### Viewing Logs
