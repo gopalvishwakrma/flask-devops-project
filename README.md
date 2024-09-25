@@ -83,14 +83,15 @@ docker-compose up -d --build
 2. Check the status of the containers:
 
 ```bash
-docker-compose ps
+docker compose ps
 ```
 
-![Docker Compose Status](assets/docker_compose_status.png)
+![Docker Compose Status](assets/docker_compose_ps.png)
 
 3. Access the application at `http://your-server-ip:8082`
 
-![Application Screenshot](assets/application_screenshot.png)
+![Application Screenshot](assets/application_screenshot_1.png)
+![Application Screenshot](assets/application_screenshot_2.png)
 
 ## Monitoring and Logging
 
@@ -105,7 +106,7 @@ docker-compose logs -f service_name
 ### Monitoring Container Health
 
 ```bash
-docker-compose ps
+docker compose ps
 ```
 
 ### Checking Resource Usage
