@@ -5,8 +5,8 @@ pipeline {
         DB_USER = credentials('db_user') // Assume you have these set up in Jenkins credentials
         DB_PASSWORD = credentials('db_password')
         POSTGRES_DB = 'myapp'
-        MAIL_USERNAME = credentials('mail_username')
-        MAIL_PASSWORD = credentials('mail_password')
+        MAIL_USERNAME = credentials('gopalvish@supporthives.com')
+        MAIL_PASSWORD = credentials('7kR&CQY%PN')
         REDIS_HOST = 'redis'
     }
 
