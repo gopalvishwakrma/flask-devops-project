@@ -1,17 +1,17 @@
-version: '3.8'
+version: '3.8'  # Specify version for best practices
 
 services:
   web:
     build: .
     ports:
-      - "5000:5000"  # Exposing Flask app internally
+      - "8081:5000"
     environment:
       - DB_USER=${DB_USER}
       - DB_PASSWORD=${DB_PASSWORD}
-      - DB_NAME=${POSTGRES_DB}
+      - POSTGRES_DB=${POSTGRES_DB}  # Updated to match environment variable
       - REDIS_HOST=${REDIS_HOST}
-      - FLASK_MAIL_USERNAME=${MAIL_USERNAME}
-      - FLASK_MAIL_PASSWORD=${MAIL_PASSWORD}
+      - MAIL_USERNAME=${MAIL_USERNAME}  # Updated for consistency
+      - MAIL_PASSWORD=${MAIL_PASSWORD}  # Updated for consistency
     depends_on:
       - db
       - redis
@@ -25,6 +25,9 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
+    dns:  # DNS settings to resolve external hostnames
+      - 8.8.8.8  # Google DNS
+      - 8.8.4.4
 
   db:
     image: postgres:13
@@ -61,9 +64,10 @@ services:
   nginx:
     image: nginx:alpine
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx.conf:/etc/nginx/nginx.conf
     ports:
-      - "8082:8082"  # Change to the new port
+      - "80:80"
+      - "443:443"
     depends_on:
       - web
     logging:
@@ -72,11 +76,10 @@ services:
         max-size: "10m"
         max-file: "3"
     healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:8082 || exit 1"]
+      test: ["CMD-SHELL", "curl -f http://localhost || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 3
 
 volumes:
   postgres_data:
-
