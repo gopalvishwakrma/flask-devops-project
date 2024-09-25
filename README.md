@@ -3,6 +3,7 @@
 ## Docker + Flask + NGINX + Redis + PostgreSQL on AlmaLinux
 
 This project demonstrates a containerized web application setup using Docker, Flask, NGINX, Redis, and PostgreSQL, deployed on AlmaLinux. It is designed to showcase my project and the steps involved in containerization, web development, and database management.
+This project is a Docker-based Flask web application showcasing a complete DevOps workflow. It integrates Redis, PostgreSQL, and NGINX to create a scalable, production-ready architecture. The Flask app serves as a web interface and includes features like a contact form with email functionality, utilizing Flask-Mail with SMTP. The project uses Docker Compose to streamline container management, ensuring that all services (Redis, Postgres, NGINX) are orchestrated and networked together efficiently. This setup demonstrates key DevOps principles such as containerization, service orchestration, and infrastructure as code, making it ideal for deployment and continuous integration pipelines
 
 ## Table of Contents
 
