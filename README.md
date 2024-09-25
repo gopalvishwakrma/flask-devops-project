@@ -135,15 +135,4 @@ docker-compose logs db
 docker-compose logs web
 ```
 
-## Future Improvements
-
-1. Implement a CI/CD pipeline using Jenkins or GitLab CI
-2. Add Prometheus and Grafana for advanced monitoring
-3. Implement automated testing in the Docker environment
-4. Set up ELK stack (Elasticsearch, Logstash, Kibana) for centralized logging
-5. Optimize Docker images for production use
-6. Implement a reverse proxy like Traefik for easier SSL management
-
----
-
 This project was created by Gopal Vishwakarma, a passionate DevOps fresher. For any questions or collaborations, please reach out at gopalvish@supporthives.com.
