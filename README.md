@@ -12,7 +12,6 @@ This project demonstrates a containerized web application setup using Docker, Fl
 4. [Running the Application](#running-the-application)
 5. [Monitoring and Logging](#monitoring-and-logging)
 6. [Troubleshooting](#troubleshooting)
-7. [Future Improvements](#future-improvements)
 
 ## Prerequisites
 
