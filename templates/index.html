@@ -3,73 +3,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Showcase by Gopal Vishwakarma</title>
+    <title>DevOps Project Showcase by Gopal Vishwakarma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --background-color: #ecf0f1;
+            --text-color: #34495e;
+        }
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 20px;
         }
-        .section {
-            margin-bottom: 40px;
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            position: relative;
+            overflow: hidden;
         }
-        .section h2 {
-            font-size: 24px;
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+            transform: skewY(-4deg);
+            transform-origin: top left;
+            z-index: -1;
+        }
+        h1 {
+            font-size: 2.5em;
             margin-bottom: 10px;
+        }
+        .intro {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .section {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        .description {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        .hits {
+            font-weight: 600;
+            color: var(--accent-color);
         }
         form {
-            max-width: 400px;
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            gap: 20px;
         }
         input, textarea {
-            margin-bottom: 10px;
-            padding: 8px;
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
             font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        input:focus, textarea:focus {
+            border-color: var(--secondary-color);
+            outline: none;
         }
         input[type="submit"] {
-            background-color: #4CAF50;
+            background-color: var(--secondary-color);
             color: white;
             border: none;
+            padding: 12px 20px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #2980b9;
         }
         .alert {
-            padding: 10px;
-            color: white;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+            font-weight: 600;
         }
         .success {
-            background-color: #4CAF50;
+            background-color: #2ecc71;
+            color: white;
         }
         .danger {
-            background-color: #f44336;
+            background-color: #e74c3c;
+            color: white;
+        }
+        .tech-stack {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+        .tech-item {
+            text-align: center;
+            font-size: 3em;
+            color: var(--primary-color);
+        }
+        .tech-item i {
+            margin-bottom: 10px;
+        }
+        .tech-name {
+            font-size: 0.4em;
+            display: block;
         }
     </style>
 </head>
 <body>
-    <h1>Project Showcase: Docker + Flask + NGINX</h1>
+    <header>
+        <div class="container">
+            <h1>DevOps Project Showcase</h1>
+            <p class="intro">Docker + Flask + NGINX + Jenkins</p>
+            <p class="intro">by Gopal Vishwakarma, DevOps Engineer</p>
+        </div>
+    </header>
 
-    <div class="section">
-        <h2>About the Project</h2>
-        <p>{{ description }}</p>
-        <p>This project has been accessed {{ hits }} times.</p>
-    </div>
+    <div class="container">
+        <div class="section">
+            <h2>About the Project</h2>
+            <p class="description">{{ description }}</p>
+            <p class="description">This cutting-edge DevOps project has been viewed <span class="hits">{{ hits }}</span> times.</p>
+            <div class="tech-stack">
+                <div class="tech-item">
+                    <i class="fab fa-docker"></i>
+                    <span class="tech-name">Docker</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-python"></i>
+                    <span class="tech-name">Flask</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-server"></i>
+                    <span class="tech-name">NGINX</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-jenkins"></i>
+                    <span class="tech-name">Jenkins</span>
+                </div>
+            </div>
+        </div>
 
-    <div class="section">
-        <h2>Contact Us</h2>
-        <form action="/contact" method="post">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Your Message" required></textarea>
-            <input type="submit" value="Send Message">
-        </form>
-        
-        {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            {% for category, message in messages %}
-                <div class="alert {{ category }}">{{ message }}</div>
-            {% endfor %}
-        {% endif %}
-        {% endwith %}
+        <div class="section">
+            <h2>Get in Touch</h2>
+            <form action="/contact" method="post">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                <input type="submit" value="Send Message">
+            </form>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
+        </div>
     </div>
 </body>
 </html>
-
