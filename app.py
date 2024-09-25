@@ -1,5 +1,5 @@
 import os
-from flask import Flask, jsonify, render_template, request, flash
+from flask import Flask, jsonify, render_template, request, flash, redirect
 import redis
 import psycopg2
 from flask_mail import Mail, Message
@@ -17,10 +17,10 @@ db_conn = psycopg2.connect(
 )
 
 # Email configuration for Contact Us form
-app.config['MAIL_SERVER'] = 'smtp'
+app.config['MAIL_SERVER'] = 'mail.supporthives.com'
 app.config['MAIL_PORT'] = 465
-app.config['MAIL_USERNAME'] = 'gopalvish@supporthives.com'
-app.config['MAIL_PASSWORD'] = '7kR&CQY%PN'  # Use an environment variable or secret storage in production
+app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME', 'gopalvish@supporthives.com')
+app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD', '7kR&CQY%PN')  # Use an environment variable or secret storage in production
 app.config['MAIL_USE_SSL'] = True
 mail = Mail(app)
 
@@ -43,16 +43,34 @@ def contact():
         flash("Please fill out all fields", "danger")
         return redirect('/')
 
-    # Send an email notification
-    msg = Message(f"Contact Us Form Submission from {name}",
-                  sender='gopalvish@supporthives.com',
-                  recipients=['gopalvish@supporthives.com'])
-    msg.body = f"Message from {name} ({email}): {message}"
-    mail.send(msg)
+    try:
+        # Send an email notification with a more formatted body
+        msg = Message(f"Contact Us Form Submission from {name}",
+                      sender=os.getenv('MAIL_USERNAME', 'gopalvish@supporthives.com'),
+                      recipients=[os.getenv('MAIL_USERNAME', 'gopalvish@supporthives.com')])
 
-    flash("Your message has been sent!", "success")
+        msg.body = f"""
+        Hello Gopal,
+
+        You have received a new message from your project showcase contact form.
+
+        --------------------------------
+        Name: {name}
+        Email: {email}
+        Message:
+        {message}
+        --------------------------------
+
+        Best Regards,
+        Your Project Team
+        """
+        mail.send(msg)
+
+        flash("Your message has been sent!", "success")
+    except Exception as e:
+        flash(f"An error occurred: {str(e)}", "danger")
+
     return redirect('/')
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
-
