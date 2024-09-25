@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Showcase by Gopal Vishwakarma</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .section h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        form {
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+        }
+        input, textarea {
+            margin-bottom: 10px;
+            padding: 8px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .alert {
+            padding: 10px;
+            color: white;
+        }
+        .success {
+            background-color: #4CAF50;
+        }
+        .danger {
+            background-color: #f44336;
+        }
+    </style>
+</head>
+<body>
+    <h1>Project Showcase: Docker + Flask + NGINX</h1>
+
+    <div class="section">
+        <h2>About the Project</h2>
+        <p>{{ description }}</p>
+        <p>This project has been accessed {{ hits }} times.</p>
+    </div>
+
+    <div class="section">
+        <h2>Contact Us</h2>
+        <form action="/contact" method="post">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <input type="submit" value="Send Message">
+        </form>
+        
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert {{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </div>
+</body>
+</html>
+
