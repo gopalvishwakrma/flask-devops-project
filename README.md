@@ -56,7 +56,7 @@ sudo dnf install git
 ### 3. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/devops-project-showcase.git
+git clone https://github.com/gopalvishwakrma/flask-devops-project.git
 cd devops-project-showcase
 ```
 
