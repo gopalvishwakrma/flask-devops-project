@@ -22,8 +22,8 @@ db_conn = psycopg2.connect(
 # Email configuration for the Contact Us form
 app.config['MAIL_SERVER'] = 'mail.supporthives.com'  # Mail server address
 app.config['MAIL_PORT'] = 465  # Mail server port
-app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME', 'gopalvish@supporthives.com')  # Sender's email
-app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD', '7kR&CQY%PN')  # Sender's email password (consider using a secret storage in production)
+app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME', 'your_email')  # Sender's email
+app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD', 'your_password')  # Sender's email password (consider using a secret storage in production)
 app.config['MAIL_USE_SSL'] = True  # Use SSL for secure email communication
 mail = Mail(app)  # Initialize the Flask-Mail instance
 
@@ -62,8 +62,8 @@ def contact():
 
         # Prepare and send an email notification for the contact submission
         msg = Message(f"Contact Us Form Submission from {name}",
-                      sender=os.getenv('MAIL_USERNAME', 'gopalvish@supporthives.com'),
-                      recipients=[os.getenv('MAIL_USERNAME', 'gopalvish@supporthives.com')])
+                      sender=os.getenv('MAIL_USERNAME', 'your_email'),
+                      recipients=[os.getenv('MAIL_USERNAME', 'your_password)])
 
         msg.body = f"""
         Hello Gopal,
