@@ -91,8 +91,7 @@ docker compose ps
 
 3. Access the application at `http://your-server-ip:8081`
 
-![Application Screenshot](assets/application_screenshot_1.png)
-![Application Screenshot](assets/application_screenshot_2.png)
+
 
 ## Last output
 Email Successfully sent
