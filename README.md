@@ -1,6 +1,6 @@
 # DevOps Project Showcase
 
-## Docker + Flask + NGINX + Redis + PostgreSQL on AlmaLinux
+## Dynamic Web Application with Docker and Flask Architecture
 
 This project demonstrates a containerized web application setup using Docker, Flask, NGINX, Redis, and PostgreSQL, deployed on AlmaLinux. It is designed to showcase my expertise in project deployment and the steps involved in containerization, web development, and database management.
 
